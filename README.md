@@ -1,0 +1,2 @@
+# Template
+Hexagonal structure template
