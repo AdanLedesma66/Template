@@ -7,4 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/template/v1")
 public class ExampleEndpoint {
 
+    // ::: injections
+
+
+
+    // ::: endpoints
+
+
 }

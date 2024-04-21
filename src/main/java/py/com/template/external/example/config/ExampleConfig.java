@@ -8,6 +8,8 @@ import py.com.template.external.example.ExampleOutPortImpl;
 @Configuration
 public class ExampleConfig {
 
+    // ::: config
+
     @Bean
     public ExampleOutPort exampleOutPort(){
         return new ExampleOutPortImpl();
