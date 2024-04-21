@@ -8,7 +8,16 @@ import py.com.template.domain.port.in.ExampleInPort;
 @AllArgsConstructor
 public class ExampleService implements ExampleInPort {
 
-    // ::: impl
+    // ::: injections
+
+
+
+    // ::: impls
+
+
+
+    // ::: internals
+
 
 
 }

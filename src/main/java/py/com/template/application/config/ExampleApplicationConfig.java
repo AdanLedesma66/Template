@@ -8,6 +8,8 @@ import py.com.template.domain.services.ExampleService;
 @Configuration
 public class ExampleApplicationConfig {
 
+    // ::: config
+
     @Bean
     public ExampleInPort exampleInPort(){
         return new ExampleService();
