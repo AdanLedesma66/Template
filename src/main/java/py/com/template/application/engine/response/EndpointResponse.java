@@ -1,7 +1,6 @@
 package py.com.template.application.engine.response;
 
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
