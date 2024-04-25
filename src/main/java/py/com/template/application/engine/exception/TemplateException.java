@@ -1,65 +1,60 @@
 package py.com.template.application.engine.exception;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.Map;
+import java.time.OffsetDateTime;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
 public class TemplateException extends RuntimeException {
 
     // ::: vars
-    //
-    private int code = 1;
-    private String name = "unknown";
-    private Map<String, ?> extra;
+
+    private String errorCode;
+    private String userMessage;
+    private Boolean useApiMessage;
+    private Integer httpStatus;
 
     // ::: constructors
-    //
 
     public TemplateException(Throwable cause) {
-        this(null, null, cause);
+        super(cause);
     }
 
-    public TemplateException(TemplatePrototype proto, String msg) {
-        this(proto, msg, null);
+    public TemplateException(String codeError, String detailedMessage, Integer httpStatus) {
+        super(detailedMessage);
+        this.errorCode = codeError;
+        this.httpStatus = httpStatus;
+        this.userMessage = detailedMessage;
+        this.useApiMessage = false;
     }
 
-    public TemplateException(TemplatePrototype proto, String msg, Throwable cause) {
-        super(msg);
-        if(proto != null) {
-            this.code = proto.getCode();
-            this.name = proto.getName();
-        }
-        if(cause != null) {
-            initCause(cause);
-        }
+    public TemplateException(String codigoError, String mensajeDetallado, Integer httpStatus, Boolean useApiMessage) {
+        super(mensajeDetallado);
+        this.errorCode = codigoError;
+        this.httpStatus = httpStatus;
+        this.userMessage = mensajeDetallado;
+        this.useApiMessage = useApiMessage;
     }
 
-    public TemplateException(int code, String name, String msg) {
-        this(code, name, msg, null);
+    public TemplateException(String codigoError, String mensajeDetallado, String mensajeUsuario, Integer httpStatus) {
+        super(mensajeDetallado);
+        this.errorCode = codigoError;
+        this.httpStatus = httpStatus;
+        this.userMessage = mensajeUsuario;
+        this.useApiMessage = false;
     }
 
-    public TemplateException(int code, String name, String msg, Throwable cause) {
-        super(msg);
-
-        if(code > 0) {
-            this.code = code;
-        }
-
-        if(name != null) {
-            this.name = name;
-        }
-
-        if(cause != null) {
-            initCause(cause);
-        }
-
+    public TemplateException(String codigoError, String mensajeDetallado, String mensajeUsuario, Integer httpStatus, Boolean useApiMessage) {
+        super(mensajeDetallado);
+        this.errorCode = codigoError;
+        this.httpStatus = httpStatus;
+        this.userMessage = mensajeUsuario;
+        this.useApiMessage = useApiMessage;
     }
+
 
 }
