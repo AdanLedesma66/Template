@@ -2,8 +2,6 @@ package py.com.template.application.engine.exception;
 
 import lombok.*;
 
-import java.time.OffsetDateTime;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
